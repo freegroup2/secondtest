@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:comp2="comp2.*">
+	<fx:Script>
+		<![CDATA[
+			import comp2.BasicComp;
+			private function click_H(event:MouseEvent):void
+			{
+				var temp:BasicComp = event.currentTarget as BasicComp;
+				var mode:Boolean = !temp.mode;
+				temp.setFilter(mode);
+				this.compLabel.text = temp.getMessage();
+			}
+		]]>
+	</fx:Script>
+	
+	<s:Group>
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>	
+		<s:Label id="compLabel" text="看這裡..."/>
+		<comp2:BasicComp id="comp1" message="anistar" click="click_H(event)"/>
+		<comp2:BasicComp id="comp2" message="victory" click="click_H(event)" glowColor="0xFF1122"/>
+		<comp2:BasicComp id="comp3" message="John" click="click_H(event)" glowColor="0x2200FF"/>
+	</s:Group>	
+</s:Application>

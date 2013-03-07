@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="174" height="78"
+		 backgroundColor="#265ADE" cornerRadius="10" borderStyle="solid"
+		 horizontalAlign="center" verticalAlign="middle" dropShadowVisible="true">
+	<fx:Script>
+		<![CDATA[
+			import flash.filters.GlowFilter;
+			[Bindable]
+			public var message:String;
+			public var apple:String = "edit";
+			public var glowColor:int = 0x123FFF;
+			private var _mode:Boolean = false;
+			
+			public function get mode():Boolean
+			{
+				return this._mode;
+			}
+			public function setFilter(mode:Boolean):void
+			{
+				if(mode)
+					this.filters=[new GlowFilter(this.glowColor,1,30,30)];
+				else
+					this.filters = [];
+				this._mode = mode;
+			}
+			public function getMessage():String
+			{
+				return this.name + "回應資料為：" + this.message;
+			}
+		]]>
+	</fx:Script>
+	
+	<mx:Label text="**********************"/>
+	<mx:Label text="{this.message}" fontSize="12"/>
+	<mx:Label text="**********************"/>
+	<mx:Label text="Taipei" id="label1"/>
+	<mx:Label text="{this.label1.text}"/>
+</mx:VBox>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

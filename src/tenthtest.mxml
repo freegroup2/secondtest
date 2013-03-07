@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+	<fx:Script>
+		<![CDATA[
+			import flash.net.URLRequest;
+			import flash.net.navigateToURL;
+			
+			[Bindable]
+			public var classTitle:String;
+			[Bindable]
+			public var classTime:String;
+			public var classLink:String;
+						
+			private function rollOver_H():void
+			{
+				this.highlightCanvas.setStyle("backgroundAlpha",1);
+			}
+			private function rollOut_H():void
+			{
+				this.highlightCanvas.setStyle("backgroundAlpha",0);
+			}
+			private function click_H():void
+			{
+				var url:URLRequest = new URLRequest();
+				url.url = "http://www.yahoo.com.tw";
+				navigateToURL(url,"_blank");
+			}
+		]]>
+	</fx:Script>
+	<s:Image x="5" y="5" source="@Embed('1.jpg')"/>
+	<mx:Canvas id="highlightCanvas" x="23" y="3" height="1024" width="768"
+			   backgroundColor="0x256EEE"
+			   backgroundAlpha="0" rollOver="rollOver_H()" rollOut="rollOut_H()"
+			   click="click_H()">
+		<s:Label text="{this.classTitle}"/>
+	</mx:Canvas>
+		<s:Label x="23" y="24" text="{this.classTime}" fontWeight="bold"/>
+</s:Application>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
